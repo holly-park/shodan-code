@@ -3,20 +3,20 @@
 import json
 import shodan
 from shodan.cli.helpers import get_api_key
-api_use = shodan.Shodan(get_api_key())   #instance
+api_use = shodan.Shodan(get_api_key())   #리눅스 쉘에서 shodan  init으로 해온 api값을 가져오면 문자열이 아니어서 에러가 날 수 있다
 
-api_use = ''
+api_use = ''   #이렇게 다시 바꿈
 
 
 import requests
-query1 = 'cctv country:"KR"'
-URL = "https://api.shodan.io/shodan/host/search?key={api_use}&query={query1}".format(api_use=api_use, query1=query1)
-print(URL)
+query = 'cctv country:"KR"'  #검색할 쿼리
+URL = "https://api.shodan.io/shodan/host/search?key={api_use}&query={query1}".format(api_use=api_use, query=query)
+print(URL)  #url 이 잘 나오나 프린트 꼭 해볼 것
 
 
 
 r = requests.get(URL)
-print(r.status_code)
+print(r.status_code)  #확인 코드도 꼭 프린트 해볼 것
 content = json.loads(r.text)
 
 print(type(content))
