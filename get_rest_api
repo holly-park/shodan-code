@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+
+import json
+import shodan
+from shodan.cli.helpers import get_api_key
+api_use = shodan.Shodan(get_api_key())   #instance
+
+api_use = ''
+
+
+import requests
+query1 = 'cctv country:"KR"'
+URL = "https://api.shodan.io/shodan/host/search?key={api_use}&query={query1}".format(api_use=api_use, query1=query1)
+print(URL)
+
+
+
+r = requests.get(URL)
+print(r.status_code)
+content = json.loads(r.text)
+
+print(type(content))
+print(content.keys())
