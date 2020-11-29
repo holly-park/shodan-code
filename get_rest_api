@@ -10,7 +10,7 @@ api_use = ''   #이렇게 다시 바꿈
 
 import requests
 query = 'cctv country:"KR"'  #검색할 쿼리
-URL = "https://api.shodan.io/shodan/host/search?key={api_use}&query={query1}".format(api_use=api_use, query=query)
+URL = "https://api.shodan.io/shodan/host/search?key={api_use}&query={query}".format(api_use=api_use, query=query)
 print(URL)  #url 이 잘 나오나 프린트 꼭 해볼 것
 
 
